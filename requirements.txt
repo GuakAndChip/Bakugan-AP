@@ -1,0 +1,3 @@
+websockets>=12
+# only needed when running on a non-Windows machine:
+# dolphin-memory-engine>=1.2

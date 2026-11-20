@@ -1,0 +1,938 @@
+{
+    "Pyrus Dragonoid": {
+        "ap_id": 8800001,
+        "hex_offset": "0x00000000",
+        "dec_offset": 0,
+        "species_idx": 0,
+        "attribute_idx": 0,
+        "base_stats_hex": "00000000000154001414280A2801"
+    },
+    "Pyrus Delta Dragonoid": {
+        "ap_id": 8800007,
+        "hex_offset": "0x00000078",
+        "dec_offset": 120,
+        "species_idx": 1,
+        "attribute_idx": 0,
+        "base_stats_hex": "010000000001C200281E320A2801"
+    },
+    "Haos Tigrerra": {
+        "ap_id": 8800028,
+        "hex_offset": "0x0000021C",
+        "dec_offset": 540,
+        "species_idx": 4,
+        "attribute_idx": 3,
+        "base_stats_hex": "04000000030154000A28280A1E01"
+    },
+    "Haos Blade Tigrerra": {
+        "ap_id": 8800034,
+        "hex_offset": "0x00000294",
+        "dec_offset": 660,
+        "species_idx": 5,
+        "attribute_idx": 3,
+        "base_stats_hex": "050000000301C2002828320A1E01"
+    },
+    "Aquos Preyas": {
+        "ap_id": 8800038,
+        "hex_offset": "0x000002E4",
+        "dec_offset": 740,
+        "species_idx": 6,
+        "attribute_idx": 1,
+        "base_stats_hex": "060000000101540028141E1E1401"
+    },
+    "Aquos Angelo": {
+        "ap_id": 8800044,
+        "hex_offset": "0x0000035C",
+        "dec_offset": 860,
+        "species_idx": 7,
+        "attribute_idx": 1,
+        "base_stats_hex": "070000000101900028141E1E2801"
+    },
+    "Aquos Diablo": {
+        "ap_id": 8800050,
+        "hex_offset": "0x000003D4",
+        "dec_offset": 980,
+        "species_idx": 8,
+        "attribute_idx": 1,
+        "base_stats_hex": "080000000101900028141E1E2801"
+    },
+    "Subterra Gorem": {
+        "ap_id": 8800057,
+        "hex_offset": "0x00000460",
+        "dec_offset": 1120,
+        "species_idx": 9,
+        "attribute_idx": 2,
+        "base_stats_hex": "0900000002017C002828280A0A01"
+    },
+    "Subterra Hammer Gorem": {
+        "ap_id": 8800063,
+        "hex_offset": "0x000004D8",
+        "dec_offset": 1240,
+        "species_idx": 10,
+        "attribute_idx": 2,
+        "base_stats_hex": "0A0000000201C2003232280A0A01"
+    },
+    "Ventus Skyress": {
+        "ap_id": 8800072,
+        "hex_offset": "0x0000058C",
+        "dec_offset": 1420,
+        "species_idx": 11,
+        "attribute_idx": 5,
+        "base_stats_hex": "0B00000005016800141414282801"
+    },
+    "Ventus Storm Skyress": {
+        "ap_id": 8800078,
+        "hex_offset": "0x00000604",
+        "dec_offset": 1540,
+        "species_idx": 12,
+        "attribute_idx": 5,
+        "base_stats_hex": "0C0000000501C200142814283201"
+    },
+    "Darkus Hydranoid": {
+        "ap_id": 8800083,
+        "hex_offset": "0x00000668",
+        "dec_offset": 1640,
+        "species_idx": 13,
+        "attribute_idx": 4,
+        "base_stats_hex": "0D000000040190002828141E0A01"
+    },
+    "Darkus Dual Hydranoid": {
+        "ap_id": 8800089,
+        "hex_offset": "0x000006E0",
+        "dec_offset": 1760,
+        "species_idx": 14,
+        "attribute_idx": 4,
+        "base_stats_hex": "0E0000000401C200321E1E320A01"
+    },
+    "Aquos Reaper": {
+        "ap_id": 8800152,
+        "hex_offset": "0x00000BCC",
+        "dec_offset": 3020,
+        "species_idx": 25,
+        "attribute_idx": 1,
+        "base_stats_hex": "19000000010122000A2814321E01"
+    },
+    "Subterra Reaper": {
+        "ap_id": 8800153,
+        "hex_offset": "0x00000BE0",
+        "dec_offset": 3040,
+        "species_idx": 25,
+        "attribute_idx": 2,
+        "base_stats_hex": "19000000020122000A2814321E01"
+    },
+    "Haos Reaper": {
+        "ap_id": 8800154,
+        "hex_offset": "0x00000BF4",
+        "dec_offset": 3060,
+        "species_idx": 25,
+        "attribute_idx": 3,
+        "base_stats_hex": "19000000030122000A2814321E01"
+    },
+    "Darkus Reaper": {
+        "ap_id": 8800155,
+        "hex_offset": "0x00000C08",
+        "dec_offset": 3080,
+        "species_idx": 25,
+        "attribute_idx": 4,
+        "base_stats_hex": "19000000040122000A2814321E01"
+    },
+    "Ventus Reaper": {
+        "ap_id": 8800156,
+        "hex_offset": "0x00000C1C",
+        "dec_offset": 3100,
+        "species_idx": 25,
+        "attribute_idx": 5,
+        "base_stats_hex": "19000000050122000A2814321E01"
+    },
+    "Subterra Cycloid": {
+        "ap_id": 8800159,
+        "hex_offset": "0x00000C58",
+        "dec_offset": 3160,
+        "species_idx": 26,
+        "attribute_idx": 2,
+        "base_stats_hex": "1A00000002017200281E28140A01"
+    },
+    "Aquos Sirenoid": {
+        "ap_id": 8800164,
+        "hex_offset": "0x00000CBC",
+        "dec_offset": 3260,
+        "species_idx": 27,
+        "attribute_idx": 1,
+        "base_stats_hex": "1B000000010172001E1414281401"
+    },
+    "Pyrus Fourtress": {
+        "ap_id": 8800169,
+        "hex_offset": "0x00000D20",
+        "dec_offset": 3360,
+        "species_idx": 28,
+        "attribute_idx": 0,
+        "base_stats_hex": "1C000000000172001E281E1E1401"
+    },
+    "Haos Tentaclear": {
+        "ap_id": 8800178,
+        "hex_offset": "0x00000DD4",
+        "dec_offset": 3540,
+        "species_idx": 29,
+        "attribute_idx": 3,
+        "base_stats_hex": "1D000000030172001E141E1E1E01"
+    },
+    "Ventus Harpus": {
+        "ap_id": 8800186,
+        "hex_offset": "0x00000E74",
+        "dec_offset": 3700,
+        "species_idx": 30,
+        "attribute_idx": 5,
+        "base_stats_hex": "1E00000005017200141414282801"
+    },
+    "Pyrus Juggernoid": {
+        "ap_id": 8800235,
+        "hex_offset": "0x00001248",
+        "dec_offset": 4680,
+        "species_idx": 39,
+        "attribute_idx": 0,
+        "base_stats_hex": "270000000000AA000A2814281401"
+    },
+    "Aquos Juggernoid": {
+        "ap_id": 8800236,
+        "hex_offset": "0x0000125C",
+        "dec_offset": 4700,
+        "species_idx": 39,
+        "attribute_idx": 1,
+        "base_stats_hex": "270000000100AA000A2814281401"
+    },
+    "Subterra Juggernoid": {
+        "ap_id": 8800237,
+        "hex_offset": "0x00001270",
+        "dec_offset": 4720,
+        "species_idx": 39,
+        "attribute_idx": 2,
+        "base_stats_hex": "270000000200AA000A2814281401"
+    },
+    "Haos Juggernoid": {
+        "ap_id": 8800238,
+        "hex_offset": "0x00001284",
+        "dec_offset": 4740,
+        "species_idx": 39,
+        "attribute_idx": 3,
+        "base_stats_hex": "270000000300AA000A2814281401"
+    },
+    "Darkus Juggernoid": {
+        "ap_id": 8800239,
+        "hex_offset": "0x00001298",
+        "dec_offset": 4760,
+        "species_idx": 39,
+        "attribute_idx": 4,
+        "base_stats_hex": "270000000400AA000A2814281401"
+    },
+    "Ventus Juggernoid": {
+        "ap_id": 8800240,
+        "hex_offset": "0x000012AC",
+        "dec_offset": 4780,
+        "species_idx": 39,
+        "attribute_idx": 5,
+        "base_stats_hex": "270000000500AA000A2814281401"
+    },
+    "Pyrus Robotallion": {
+        "ap_id": 8800241,
+        "hex_offset": "0x000012C0",
+        "dec_offset": 4800,
+        "species_idx": 40,
+        "attribute_idx": 0,
+        "base_stats_hex": "280000000000C80028141E141401"
+    },
+    "Aquos Robotallion": {
+        "ap_id": 8800242,
+        "hex_offset": "0x000012D4",
+        "dec_offset": 4820,
+        "species_idx": 40,
+        "attribute_idx": 1,
+        "base_stats_hex": "280000000100C80028141E141401"
+    },
+    "Subterra Robotallion": {
+        "ap_id": 8800243,
+        "hex_offset": "0x000012E8",
+        "dec_offset": 4840,
+        "species_idx": 40,
+        "attribute_idx": 2,
+        "base_stats_hex": "280000000200C80028141E141401"
+    },
+    "Haos Robotallion": {
+        "ap_id": 8800244,
+        "hex_offset": "0x000012FC",
+        "dec_offset": 4860,
+        "species_idx": 40,
+        "attribute_idx": 3,
+        "base_stats_hex": "280000000300C80028141E141401"
+    },
+    "Darkus Robotallion": {
+        "ap_id": 8800245,
+        "hex_offset": "0x00001310",
+        "dec_offset": 4880,
+        "species_idx": 40,
+        "attribute_idx": 4,
+        "base_stats_hex": "280000000400C80028141E141401"
+    },
+    "Ventus Robotallion": {
+        "ap_id": 8800246,
+        "hex_offset": "0x00001324",
+        "dec_offset": 4900,
+        "species_idx": 40,
+        "attribute_idx": 5,
+        "base_stats_hex": "280000000500C80028141E141401"
+    },
+    "Pyrus Saurus": {
+        "ap_id": 8800247,
+        "hex_offset": "0x00001338",
+        "dec_offset": 4920,
+        "species_idx": 41,
+        "attribute_idx": 0,
+        "base_stats_hex": "290000000000B4001428141E0A01"
+    },
+    "Aquos Saurus": {
+        "ap_id": 8800248,
+        "hex_offset": "0x0000134C",
+        "dec_offset": 4940,
+        "species_idx": 41,
+        "attribute_idx": 1,
+        "base_stats_hex": "290000000100B4001428141E0A01"
+    },
+    "Subterra Saurus": {
+        "ap_id": 8800249,
+        "hex_offset": "0x00001360",
+        "dec_offset": 4960,
+        "species_idx": 41,
+        "attribute_idx": 2,
+        "base_stats_hex": "290000000200B4001428141E0A01"
+    },
+    "Haos Saurus": {
+        "ap_id": 8800250,
+        "hex_offset": "0x00001374",
+        "dec_offset": 4980,
+        "species_idx": 41,
+        "attribute_idx": 3,
+        "base_stats_hex": "290000000300B4001428141E0A01"
+    },
+    "Darkus Saurus": {
+        "ap_id": 8800251,
+        "hex_offset": "0x00001388",
+        "dec_offset": 5000,
+        "species_idx": 41,
+        "attribute_idx": 4,
+        "base_stats_hex": "290000000400B4001428141E0A01"
+    },
+    "Ventus Saurus": {
+        "ap_id": 8800252,
+        "hex_offset": "0x0000139C",
+        "dec_offset": 5020,
+        "species_idx": 41,
+        "attribute_idx": 5,
+        "base_stats_hex": "290000000500B4001428141E0A01"
+    },
+    "Pyrus Serpenoid": {
+        "ap_id": 8800253,
+        "hex_offset": "0x000013B0",
+        "dec_offset": 5040,
+        "species_idx": 42,
+        "attribute_idx": 0,
+        "base_stats_hex": "2900000000009600141E1E142801"
+    },
+    "Aquos Serpenoid": {
+        "ap_id": 8800254,
+        "hex_offset": "0x000013C4",
+        "dec_offset": 5060,
+        "species_idx": 42,
+        "attribute_idx": 1,
+        "base_stats_hex": "2900000001009600141E1E142801"
+    },
+    "Subterra Serpenoid": {
+        "ap_id": 8800255,
+        "hex_offset": "0x000013D8",
+        "dec_offset": 5080,
+        "species_idx": 42,
+        "attribute_idx": 2,
+        "base_stats_hex": "2900000002009600141E1E142801"
+    },
+    "Haos Serpenoid": {
+        "ap_id": 8800256,
+        "hex_offset": "0x000013EC",
+        "dec_offset": 5100,
+        "species_idx": 42,
+        "attribute_idx": 3,
+        "base_stats_hex": "2900000003009600141E1E142801"
+    },
+    "Darkus Serpenoid": {
+        "ap_id": 8800257,
+        "hex_offset": "0x00001400",
+        "dec_offset": 5120,
+        "species_idx": 42,
+        "attribute_idx": 4,
+        "base_stats_hex": "2900000004009600141E1E142801"
+    },
+    "Ventus Serpenoid": {
+        "ap_id": 8800258,
+        "hex_offset": "0x00001414",
+        "dec_offset": 5140,
+        "species_idx": 42,
+        "attribute_idx": 5,
+        "base_stats_hex": "2900000005009600141E1E142801"
+    },
+    "Pyrus Falconeer": {
+        "ap_id": 8800259,
+        "hex_offset": "0x00001428",
+        "dec_offset": 5160,
+        "species_idx": 43,
+        "attribute_idx": 0,
+        "base_stats_hex": "2B00000000010400320A141E2801"
+    },
+    "Aquos Falconeer": {
+        "ap_id": 8800260,
+        "hex_offset": "0x0000143C",
+        "dec_offset": 5180,
+        "species_idx": 43,
+        "attribute_idx": 1,
+        "base_stats_hex": "2B00000001010400320A141E2801"
+    },
+    "Subterra Falconeer": {
+        "ap_id": 8800261,
+        "hex_offset": "0x00001450",
+        "dec_offset": 5200,
+        "species_idx": 43,
+        "attribute_idx": 2,
+        "base_stats_hex": "2B00000002010400320A141E2801"
+    },
+    "Haos Falconeer": {
+        "ap_id": 8800262,
+        "hex_offset": "0x00001464",
+        "dec_offset": 5220,
+        "species_idx": 43,
+        "attribute_idx": 3,
+        "base_stats_hex": "2B00000003010400320A141E2801"
+    },
+    "Darkus Falconeer": {
+        "ap_id": 8800263,
+        "hex_offset": "0x00001478",
+        "dec_offset": 5240,
+        "species_idx": 43,
+        "attribute_idx": 4,
+        "base_stats_hex": "2B00000004010400320A141E2801"
+    },
+    "Ventus Falconeer": {
+        "ap_id": 8800264,
+        "hex_offset": "0x0000148C",
+        "dec_offset": 5260,
+        "species_idx": 43,
+        "attribute_idx": 5,
+        "base_stats_hex": "2B00000005010400320A141E2801"
+    },
+    "Pyrus Stinglash": {
+        "ap_id": 8800265,
+        "hex_offset": "0x000014A0",
+        "dec_offset": 5280,
+        "species_idx": 44,
+        "attribute_idx": 0,
+        "base_stats_hex": "2C0000000000D20014281E141401"
+    },
+    "Aquos Stinglash": {
+        "ap_id": 8800266,
+        "hex_offset": "0x000014B4",
+        "dec_offset": 5300,
+        "species_idx": 44,
+        "attribute_idx": 1,
+        "base_stats_hex": "2C0000000100D20014281E141401"
+    },
+    "Subterra Stinglash": {
+        "ap_id": 8800267,
+        "hex_offset": "0x000014C8",
+        "dec_offset": 5320,
+        "species_idx": 44,
+        "attribute_idx": 2,
+        "base_stats_hex": "2C0000000200D20014281E141401"
+    },
+    "Haos Stinglash": {
+        "ap_id": 8800268,
+        "hex_offset": "0x000014DC",
+        "dec_offset": 5340,
+        "species_idx": 44,
+        "attribute_idx": 3,
+        "base_stats_hex": "2C0000000300D20014281E141401"
+    },
+    "Darkus Stinglash": {
+        "ap_id": 8800269,
+        "hex_offset": "0x000014F0",
+        "dec_offset": 5360,
+        "species_idx": 44,
+        "attribute_idx": 4,
+        "base_stats_hex": "2C0000000400D20014281E141401"
+    },
+    "Ventus Stinglash": {
+        "ap_id": 8800270,
+        "hex_offset": "0x00001504",
+        "dec_offset": 5380,
+        "species_idx": 44,
+        "attribute_idx": 5,
+        "base_stats_hex": "2C0000000500D20014281E141401"
+    },
+    "Pyrus Griffon": {
+        "ap_id": 8800271,
+        "hex_offset": "0x00001518",
+        "dec_offset": 5400,
+        "species_idx": 45,
+        "attribute_idx": 0,
+        "base_stats_hex": "2D0000000000E600141428141E01"
+    },
+    "Aquos Griffon": {
+        "ap_id": 8800272,
+        "hex_offset": "0x0000152C",
+        "dec_offset": 5420,
+        "species_idx": 45,
+        "attribute_idx": 1,
+        "base_stats_hex": "2D0000000100E600141428141E01"
+    },
+    "Subterra Griffon": {
+        "ap_id": 8800273,
+        "hex_offset": "0x00001540",
+        "dec_offset": 5440,
+        "species_idx": 45,
+        "attribute_idx": 2,
+        "base_stats_hex": "2D0000000200E600141428141E01"
+    },
+    "Haos Griffon": {
+        "ap_id": 8800274,
+        "hex_offset": "0x00001554",
+        "dec_offset": 5460,
+        "species_idx": 45,
+        "attribute_idx": 3,
+        "base_stats_hex": "2D0000000300E600141428141E01"
+    },
+    "Darkus Griffon": {
+        "ap_id": 8800275,
+        "hex_offset": "0x00001568",
+        "dec_offset": 5480,
+        "species_idx": 45,
+        "attribute_idx": 4,
+        "base_stats_hex": "2D0000000400E600141428141E01"
+    },
+    "Ventus Griffon": {
+        "ap_id": 8800276,
+        "hex_offset": "0x0000157C",
+        "dec_offset": 5500,
+        "species_idx": 45,
+        "attribute_idx": 5,
+        "base_stats_hex": "2D0000000500E600141428141E01"
+    },
+    "Pyrus Laser Man": {
+        "ap_id": 8800277,
+        "hex_offset": "0x00001590",
+        "dec_offset": 5520,
+        "species_idx": 46,
+        "attribute_idx": 0,
+        "base_stats_hex": "2E000000000140000A1E28321401"
+    },
+    "Aquos Laser Man": {
+        "ap_id": 8800278,
+        "hex_offset": "0x000015A4",
+        "dec_offset": 5540,
+        "species_idx": 46,
+        "attribute_idx": 1,
+        "base_stats_hex": "2E000000010140000A1E28321401"
+    },
+    "Subterra Laser Man": {
+        "ap_id": 8800279,
+        "hex_offset": "0x000015B8",
+        "dec_offset": 5560,
+        "species_idx": 46,
+        "attribute_idx": 2,
+        "base_stats_hex": "2E000000020140000A1E28321401"
+    },
+    "Haos Laser Man": {
+        "ap_id": 8800280,
+        "hex_offset": "0x000015CC",
+        "dec_offset": 5580,
+        "species_idx": 46,
+        "attribute_idx": 3,
+        "base_stats_hex": "2E000000030140000A1E28321401"
+    },
+    "Darkus Laser Man": {
+        "ap_id": 8800281,
+        "hex_offset": "0x000015E0",
+        "dec_offset": 5600,
+        "species_idx": 46,
+        "attribute_idx": 4,
+        "base_stats_hex": "2E000000040140000A1E28321401"
+    },
+    "Ventus Laser Man": {
+        "ap_id": 8800282,
+        "hex_offset": "0x000015F4",
+        "dec_offset": 5620,
+        "species_idx": 46,
+        "attribute_idx": 5,
+        "base_stats_hex": "2E000000050140000A1E28321401"
+    },
+    "Pyrus Centipoid": {
+        "ap_id": 8800283,
+        "hex_offset": "0x00001608",
+        "dec_offset": 5640,
+        "species_idx": 47,
+        "attribute_idx": 0,
+        "base_stats_hex": "2F0000000000F0000A3228140A01"
+    },
+    "Aquos Centipoid": {
+        "ap_id": 8800284,
+        "hex_offset": "0x0000161C",
+        "dec_offset": 5660,
+        "species_idx": 47,
+        "attribute_idx": 1,
+        "base_stats_hex": "2F0000000100F0000A3228140A01"
+    },
+    "Subterra Centipoid": {
+        "ap_id": 8800285,
+        "hex_offset": "0x00001630",
+        "dec_offset": 5680,
+        "species_idx": 47,
+        "attribute_idx": 2,
+        "base_stats_hex": "2F0000000200F0000A3228140A01"
+    },
+    "Haos Centipoid": {
+        "ap_id": 8800286,
+        "hex_offset": "0x00001644",
+        "dec_offset": 5700,
+        "species_idx": 47,
+        "attribute_idx": 3,
+        "base_stats_hex": "2F0000000300F0000A3228140A01"
+    },
+    "Darkus Centipoid": {
+        "ap_id": 8800287,
+        "hex_offset": "0x00001658",
+        "dec_offset": 5720,
+        "species_idx": 47,
+        "attribute_idx": 4,
+        "base_stats_hex": "2F0000000400F0000A3228140A01"
+    },
+    "Ventus Centipoid": {
+        "ap_id": 8800288,
+        "hex_offset": "0x0000166C",
+        "dec_offset": 5740,
+        "species_idx": 47,
+        "attribute_idx": 5,
+        "base_stats_hex": "2F0000000500F0000A3228140A01"
+    },
+    "Pyrus Fear Ripper": {
+        "ap_id": 8800289,
+        "hex_offset": "0x00001680",
+        "dec_offset": 5760,
+        "species_idx": 48,
+        "attribute_idx": 0,
+        "base_stats_hex": "3000000000010E00281E1E1E1401"
+    },
+    "Aquos Fear Ripper": {
+        "ap_id": 8800290,
+        "hex_offset": "0x00001694",
+        "dec_offset": 5780,
+        "species_idx": 48,
+        "attribute_idx": 1,
+        "base_stats_hex": "3000000001010E00281E1E1E1401"
+    },
+    "Subterra Fear Ripper": {
+        "ap_id": 8800291,
+        "hex_offset": "0x000016A8",
+        "dec_offset": 5800,
+        "species_idx": 48,
+        "attribute_idx": 2,
+        "base_stats_hex": "3000000002010E00281E1E1E1401"
+    },
+    "Haos Fear Ripper": {
+        "ap_id": 8800292,
+        "hex_offset": "0x000016BC",
+        "dec_offset": 5820,
+        "species_idx": 48,
+        "attribute_idx": 3,
+        "base_stats_hex": "3000000003010E00281E1E1E1401"
+    },
+    "Darkus Fear Ripper": {
+        "ap_id": 8800293,
+        "hex_offset": "0x000016D0",
+        "dec_offset": 5840,
+        "species_idx": 48,
+        "attribute_idx": 4,
+        "base_stats_hex": "3000000004010E00281E1E1E1401"
+    },
+    "Ventus Fear Ripper": {
+        "ap_id": 8800294,
+        "hex_offset": "0x000016E4",
+        "dec_offset": 5860,
+        "species_idx": 48,
+        "attribute_idx": 5,
+        "base_stats_hex": "3000000005010E00281E1E1E1401"
+    },
+    "Pyrus Siege": {
+        "ap_id": 8800295,
+        "hex_offset": "0x000016F8",
+        "dec_offset": 5880,
+        "species_idx": 49,
+        "attribute_idx": 0,
+        "base_stats_hex": "31000000000118001E1E28141E01"
+    },
+    "Aquos Siege": {
+        "ap_id": 8800296,
+        "hex_offset": "0x0000170C",
+        "dec_offset": 5900,
+        "species_idx": 49,
+        "attribute_idx": 1,
+        "base_stats_hex": "31000000010118001E1E28141E01"
+    },
+    "Subterra Siege": {
+        "ap_id": 8800297,
+        "hex_offset": "0x00001720",
+        "dec_offset": 5920,
+        "species_idx": 49,
+        "attribute_idx": 2,
+        "base_stats_hex": "31000000020118001E1E28141E01"
+    },
+    "Haos Siege": {
+        "ap_id": 8800298,
+        "hex_offset": "0x00001734",
+        "dec_offset": 5940,
+        "species_idx": 49,
+        "attribute_idx": 3,
+        "base_stats_hex": "31000000030118001E1E28141E01"
+    },
+    "Darkus Siege": {
+        "ap_id": 8800299,
+        "hex_offset": "0x00001748",
+        "dec_offset": 5960,
+        "species_idx": 49,
+        "attribute_idx": 4,
+        "base_stats_hex": "31000000040118001E1E28141E01"
+    },
+    "Ventus Siege": {
+        "ap_id": 8800300,
+        "hex_offset": "0x0000175C",
+        "dec_offset": 5980,
+        "species_idx": 49,
+        "attribute_idx": 5,
+        "base_stats_hex": "31000000050118001E1E28141E01"
+    },
+    "Pyrus Terror Claw": {
+        "ap_id": 8800301,
+        "hex_offset": "0x00001770",
+        "dec_offset": 6000,
+        "species_idx": 50,
+        "attribute_idx": 0,
+        "base_stats_hex": "3200000000010E00282814281401"
+    },
+    "Aquos Terror Claw": {
+        "ap_id": 8800302,
+        "hex_offset": "0x00001784",
+        "dec_offset": 6020,
+        "species_idx": 50,
+        "attribute_idx": 1,
+        "base_stats_hex": "3200000001010E00282814281401"
+    },
+    "Subterra Terror Claw": {
+        "ap_id": 8800303,
+        "hex_offset": "0x00001798",
+        "dec_offset": 6040,
+        "species_idx": 50,
+        "attribute_idx": 2,
+        "base_stats_hex": "3200000002010E00282814281401"
+    },
+    "Haos Terror Claw": {
+        "ap_id": 8800304,
+        "hex_offset": "0x000017AC",
+        "dec_offset": 6060,
+        "species_idx": 50,
+        "attribute_idx": 3,
+        "base_stats_hex": "3200000003010E00282814281401"
+    },
+    "Darkus Terror Claw": {
+        "ap_id": 8800305,
+        "hex_offset": "0x000017C0",
+        "dec_offset": 6080,
+        "species_idx": 50,
+        "attribute_idx": 4,
+        "base_stats_hex": "3200000004010E00282814281401"
+    },
+    "Pyrus Gargonoid": {
+        "ap_id": 8800313,
+        "hex_offset": "0x00001860",
+        "dec_offset": 6240,
+        "species_idx": 52,
+        "attribute_idx": 0,
+        "base_stats_hex": "340000000000FA0014280A1E2801"
+    },
+    "Aquos Gargonoid": {
+        "ap_id": 8800314,
+        "hex_offset": "0x00001874",
+        "dec_offset": 6260,
+        "species_idx": 52,
+        "attribute_idx": 1,
+        "base_stats_hex": "340000000100FA0014280A1E2801"
+    },
+    "Subterra Gargonoid": {
+        "ap_id": 8800315,
+        "hex_offset": "0x00001888",
+        "dec_offset": 6280,
+        "species_idx": 52,
+        "attribute_idx": 2,
+        "base_stats_hex": "340000000200FA0014280A1E2801"
+    },
+    "Darkus Gargonoid": {
+        "ap_id": 8800317,
+        "hex_offset": "0x000018B0",
+        "dec_offset": 6320,
+        "species_idx": 52,
+        "attribute_idx": 4,
+        "base_stats_hex": "340000000400FA0014280A1E2801"
+    },
+    "Ventus Gargonoid": {
+        "ap_id": 8800318,
+        "hex_offset": "0x000018C4",
+        "dec_offset": 6340,
+        "species_idx": 52,
+        "attribute_idx": 5,
+        "base_stats_hex": "340000000500FA0014280A1E2801"
+    },
+    "Pyrus Warius": {
+        "ap_id": 8800361,
+        "hex_offset": "0x00001C20",
+        "dec_offset": 7200,
+        "species_idx": 60,
+        "attribute_idx": 0,
+        "base_stats_hex": "3C000000000154001E14141E1E01"
+    },
+    "Pyrus Monarus": {
+        "ap_id": 8800367,
+        "hex_offset": "0x00001C98",
+        "dec_offset": 7320,
+        "species_idx": 61,
+        "attribute_idx": 0,
+        "base_stats_hex": "3D00000000012C00141414283201"
+    },
+    "Haos Monarus": {
+        "ap_id": 8800370,
+        "hex_offset": "0x00001CD4",
+        "dec_offset": 7380,
+        "species_idx": 61,
+        "attribute_idx": 3,
+        "base_stats_hex": "3D00000003012C00141414283201"
+    },
+    "Ventus Monarus": {
+        "ap_id": 8800372,
+        "hex_offset": "0x00001CFC",
+        "dec_offset": 7420,
+        "species_idx": 61,
+        "attribute_idx": 5,
+        "base_stats_hex": "3D00000005012C00141414283201"
+    },
+    "Pyrus Leonidas": {
+        "ap_id": 8800373,
+        "hex_offset": "0x00001D10",
+        "dec_offset": 7440,
+        "species_idx": 62,
+        "attribute_idx": 0,
+        "base_stats_hex": "3E000000000154001E14141E1E01"
+    },
+    "Aquos Leonidas": {
+        "ap_id": 8800374,
+        "hex_offset": "0x00001D24",
+        "dec_offset": 7460,
+        "species_idx": 62,
+        "attribute_idx": 1,
+        "base_stats_hex": "3E000000010154001E14141E1E01"
+    },
+    "Subterra Leonidas": {
+        "ap_id": 8800375,
+        "hex_offset": "0x00001D38",
+        "dec_offset": 7480,
+        "species_idx": 62,
+        "attribute_idx": 2,
+        "base_stats_hex": "3E000000020154001E14141E1E01"
+    },
+    "Haos Leonidas": {
+        "ap_id": 8800376,
+        "hex_offset": "0x00001D4C",
+        "dec_offset": 7500,
+        "species_idx": 62,
+        "attribute_idx": 3,
+        "base_stats_hex": "3E000000030154001E14141E1E01"
+    },
+    "Darkus Leonidas": {
+        "ap_id": 8800377,
+        "hex_offset": "0x00001D60",
+        "dec_offset": 7520,
+        "species_idx": 62,
+        "attribute_idx": 4,
+        "base_stats_hex": "3E000000040154001E14141E1E01"
+    },
+    "Ventus Leonidas": {
+        "ap_id": 8800378,
+        "hex_offset": "0x00001D74",
+        "dec_offset": 7540,
+        "species_idx": 62,
+        "attribute_idx": 5,
+        "base_stats_hex": "3E000000050154001E14141E1E01"
+    },
+    "Pyrus Omega Leonidas": {
+        "ap_id": 8800379,
+        "hex_offset": "0x00001D88",
+        "dec_offset": 7560,
+        "species_idx": 63,
+        "attribute_idx": 0,
+        "base_stats_hex": "3F0000000001D600281E1E1E1E01"
+    },
+    "Aquos Omega Leonidas": {
+        "ap_id": 8800380,
+        "hex_offset": "0x00001D9C",
+        "dec_offset": 7580,
+        "species_idx": 63,
+        "attribute_idx": 1,
+        "base_stats_hex": "3F0000000101D600281E1E1E1E01"
+    },
+    "Subterra Omega Leonidas": {
+        "ap_id": 8800381,
+        "hex_offset": "0x00001DB0",
+        "dec_offset": 7600,
+        "species_idx": 63,
+        "attribute_idx": 2,
+        "base_stats_hex": "3F0000000201D600281E1E1E1E01"
+    },
+    "Haos Omega Leonidas": {
+        "ap_id": 8800382,
+        "hex_offset": "0x00001DC4",
+        "dec_offset": 7620,
+        "species_idx": 63,
+        "attribute_idx": 3,
+        "base_stats_hex": "3F0000000301D600281E1E1E1E01"
+    },
+    "Darkus Omega Leonidas": {
+        "ap_id": 8800383,
+        "hex_offset": "0x00001DD8",
+        "dec_offset": 7640,
+        "species_idx": 63,
+        "attribute_idx": 4,
+        "base_stats_hex": "3F0000000401D600281E1E1E1E01"
+    },
+    "Ventus Omega Leonidas": {
+        "ap_id": 8800384,
+        "hex_offset": "0x00001DEC",
+        "dec_offset": 7660,
+        "species_idx": 63,
+        "attribute_idx": 5,
+        "base_stats_hex": "3F0000000501D600281E1E1E1E01"
+    },
+    "Darkus Vladitor": {
+        "ap_id": 8800389,
+        "hex_offset": "0x00001E50",
+        "dec_offset": 7760,
+        "species_idx": 64,
+        "attribute_idx": 4,
+        "base_stats_hex": "40000000040154001432320A1401"
+    },
+    "Darkus Battle Axe Vladitor": {
+        "ap_id": 8800395,
+        "hex_offset": "0x00001EC8",
+        "dec_offset": 7880,
+        "species_idx": 65,
+        "attribute_idx": 4,
+        "base_stats_hex": "400000000401D6001E3232141E01"
+    }
+}

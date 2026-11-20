@@ -1,0 +1,952 @@
+{
+    "Gargonoid": {
+        "ap_id": 8820001,
+        "index": 0,
+        "address": "0x9047255c"
+    },
+    "Manion": {
+        "ap_id": 8820002,
+        "index": 1,
+        "address": "0x9047255d"
+    },
+    "Terrorclaw": {
+        "ap_id": 8820003,
+        "index": 2,
+        "address": "0x9047255e"
+    },
+    "Cycloid": {
+        "ap_id": 8820004,
+        "index": 3,
+        "address": "0x9047255f"
+    },
+    "Gorem": {
+        "ap_id": 8820005,
+        "index": 4,
+        "address": "0x90472560"
+    },
+    "Ravenoid": {
+        "ap_id": 8820006,
+        "index": 5,
+        "address": "0x90472561"
+    },
+    "Warius": {
+        "ap_id": 8820007,
+        "index": 6,
+        "address": "0x90472562"
+    },
+    "Monarus": {
+        "ap_id": 8820008,
+        "index": 7,
+        "address": "0x90472563"
+    },
+    "Harpus": {
+        "ap_id": 8820009,
+        "index": 8,
+        "address": "0x90472564"
+    },
+    "Fourtress": {
+        "ap_id": 8820010,
+        "index": 9,
+        "address": "0x90472565"
+    },
+    "Sirenoid": {
+        "ap_id": 8820011,
+        "index": 10,
+        "address": "0x90472566"
+    },
+    "Dragonoid": {
+        "ap_id": 8820012,
+        "index": 11,
+        "address": "0x90472567"
+    },
+    "Delta Dragonoid": {
+        "ap_id": 8820013,
+        "index": 12,
+        "address": "0x90472568"
+    },
+    "Tigrerra": {
+        "ap_id": 8820014,
+        "index": 13,
+        "address": "0x90472569"
+    },
+    "Blade Tigrerra": {
+        "ap_id": 8820015,
+        "index": 14,
+        "address": "0x9047256a"
+    },
+    "Preyas": {
+        "ap_id": 8820016,
+        "index": 15,
+        "address": "0x9047256b"
+    },
+    "Preyas's": {
+        "ap_id": 8820017,
+        "index": 16,
+        "address": "0x9047256c"
+    },
+    "Hammer Gorem": {
+        "ap_id": 8820018,
+        "index": 17,
+        "address": "0x9047256d"
+    },
+    "Skyress": {
+        "ap_id": 8820019,
+        "index": 18,
+        "address": "0x9047256e"
+    },
+    "Storm Skyress": {
+        "ap_id": 8820020,
+        "index": 19,
+        "address": "0x9047256f"
+    },
+    "Hydranoid": {
+        "ap_id": 8820021,
+        "index": 20,
+        "address": "0x90472570"
+    },
+    "Dual Hydranoid": {
+        "ap_id": 8820022,
+        "index": 21,
+        "address": "0x90472571"
+    },
+    "Reaper": {
+        "ap_id": 8820023,
+        "index": 22,
+        "address": "0x90472572"
+    },
+    "Tentaclear": {
+        "ap_id": 8820024,
+        "index": 23,
+        "address": "0x90472573"
+    },
+    "Juggernoid": {
+        "ap_id": 8820025,
+        "index": 24,
+        "address": "0x90472574"
+    },
+    "Robotallion": {
+        "ap_id": 8820026,
+        "index": 25,
+        "address": "0x90472575"
+    },
+    "Saurus": {
+        "ap_id": 8820027,
+        "index": 26,
+        "address": "0x90472576"
+    },
+    "Serpenoid": {
+        "ap_id": 8820028,
+        "index": 27,
+        "address": "0x90472577"
+    },
+    "Falconeer": {
+        "ap_id": 8820029,
+        "index": 28,
+        "address": "0x90472578"
+    },
+    "Stinglash": {
+        "ap_id": 8820030,
+        "index": 29,
+        "address": "0x90472579"
+    },
+    "Griffon": {
+        "ap_id": 8820031,
+        "index": 30,
+        "address": "0x9047257a"
+    },
+    "Laserman": {
+        "ap_id": 8820032,
+        "index": 31,
+        "address": "0x9047257b"
+    },
+    "Centipod": {
+        "ap_id": 8820033,
+        "index": 32,
+        "address": "0x9047257c"
+    },
+    "Fear Ripper": {
+        "ap_id": 8820034,
+        "index": 33,
+        "address": "0x9047257d"
+    },
+    "Siege": {
+        "ap_id": 8820035,
+        "index": 34,
+        "address": "0x9047257e"
+    },
+    "Fire Pit": {
+        "ap_id": 8820036,
+        "index": 35,
+        "address": "0x9047257f"
+    },
+    "Muddy Ground": {
+        "ap_id": 8820037,
+        "index": 36,
+        "address": "0x90472580"
+    },
+    "Light-Burst": {
+        "ap_id": 8820038,
+        "index": 37,
+        "address": "0x90472581"
+    },
+    "Tsunami": {
+        "ap_id": 8820039,
+        "index": 38,
+        "address": "0x90472582"
+    },
+    "Dusk": {
+        "ap_id": 8820040,
+        "index": 39,
+        "address": "0x90472583"
+    },
+    "High Energy": {
+        "ap_id": 8820041,
+        "index": 40,
+        "address": "0x90472584"
+    },
+    "Tornado Alley": {
+        "ap_id": 8820042,
+        "index": 41,
+        "address": "0x90472585"
+    },
+    "Whirlpool": {
+        "ap_id": 8820043,
+        "index": 42,
+        "address": "0x90472586"
+    },
+    "Earthen Mound": {
+        "ap_id": 8820044,
+        "index": 43,
+        "address": "0x90472587"
+    },
+    "Elevated Field": {
+        "ap_id": 8820045,
+        "index": 44,
+        "address": "0x90472588"
+    },
+    "Force Wind": {
+        "ap_id": 8820046,
+        "index": 45,
+        "address": "0x90472589"
+    },
+    "Low Energy": {
+        "ap_id": 8820047,
+        "index": 46,
+        "address": "0x9047258a"
+    },
+    "Sandstorm": {
+        "ap_id": 8820048,
+        "index": 47,
+        "address": "0x9047258b"
+    },
+    "Haunted Night": {
+        "ap_id": 8820049,
+        "index": 48,
+        "address": "0x9047258c"
+    },
+    "Sunrise": {
+        "ap_id": 8820050,
+        "index": 49,
+        "address": "0x9047258d"
+    },
+    "Volcanic Lake": {
+        "ap_id": 8820051,
+        "index": 50,
+        "address": "0x9047258e"
+    },
+    "Aquos Vortex": {
+        "ap_id": 8820052,
+        "index": 51,
+        "address": "0x9047258f"
+    },
+    "Powder Keg": {
+        "ap_id": 8820053,
+        "index": 52,
+        "address": "0x90472590"
+    },
+    "Heavy Surf": {
+        "ap_id": 8820054,
+        "index": 53,
+        "address": "0x90472591"
+    },
+    "The Cliffs": {
+        "ap_id": 8820055,
+        "index": 54,
+        "address": "0x90472592"
+    },
+    "Vacuum": {
+        "ap_id": 8820056,
+        "index": 55,
+        "address": "0x90472593"
+    },
+    "Pit Dweller": {
+        "ap_id": 8820057,
+        "index": 56,
+        "address": "0x90472594"
+    },
+    "Nightmare": {
+        "ap_id": 8820058,
+        "index": 57,
+        "address": "0x90472595"
+    },
+    "The Spires": {
+        "ap_id": 8820059,
+        "index": 58,
+        "address": "0x90472596"
+    },
+    "Spitting Fire": {
+        "ap_id": 8820060,
+        "index": 59,
+        "address": "0x90472597"
+    },
+    "Earthen Wave": {
+        "ap_id": 8820061,
+        "index": 60,
+        "address": "0x90472598"
+    },
+    "Sun Spot": {
+        "ap_id": 8820062,
+        "index": 61,
+        "address": "0x90472599"
+    },
+    "Black Hole": {
+        "ap_id": 8820063,
+        "index": 62,
+        "address": "0x9047259a"
+    },
+    "Wind Farm": {
+        "ap_id": 8820064,
+        "index": 63,
+        "address": "0x9047259b"
+    },
+    "Whirlpool (Preyas)": {
+        "ap_id": 8820065,
+        "index": 64,
+        "address": "0x9047259c"
+    },
+    "Fields of Lava": {
+        "ap_id": 8820066,
+        "index": 65,
+        "address": "0x9047259d"
+    },
+    "Blue Sky": {
+        "ap_id": 8820067,
+        "index": 66,
+        "address": "0x9047259e"
+    },
+    "Rising Blow": {
+        "ap_id": 8820068,
+        "index": 67,
+        "address": "0x9047259f"
+    },
+    "Lava Fields": {
+        "ap_id": 8820069,
+        "index": 68,
+        "address": "0x904725a0"
+    },
+    "Earth, Wind, and Fire": {
+        "ap_id": 8820070,
+        "index": 69,
+        "address": "0x904725a1"
+    },
+    "Energy From All": {
+        "ap_id": 8820071,
+        "index": 70,
+        "address": "0x904725a2"
+    },
+    "Rainbow": {
+        "ap_id": 8820072,
+        "index": 71,
+        "address": "0x904725a3"
+    },
+    "Mega Warrior": {
+        "ap_id": 8820073,
+        "index": 72,
+        "address": "0x904725a4"
+    },
+    "G-Power Exchange": {
+        "ap_id": 8820074,
+        "index": 73,
+        "address": "0x904725a5"
+    },
+    "G-Power Swap": {
+        "ap_id": 8820075,
+        "index": 74,
+        "address": "0x904725a6"
+    },
+    "Catch-Up": {
+        "ap_id": 8820076,
+        "index": 75,
+        "address": "0x904725a7"
+    },
+    "Ability Block": {
+        "ap_id": 8820077,
+        "index": 76,
+        "address": "0x904725a8"
+    },
+    "Leap of Strength": {
+        "ap_id": 8820078,
+        "index": 77,
+        "address": "0x904725a9"
+    },
+    "Stand Your Ground": {
+        "ap_id": 8820079,
+        "index": 78,
+        "address": "0x904725aa"
+    },
+    "High Price": {
+        "ap_id": 8820080,
+        "index": 79,
+        "address": "0x904725ab"
+    },
+    "Quick Charge": {
+        "ap_id": 8820081,
+        "index": 80,
+        "address": "0x904725ac"
+    },
+    "Lock and Load": {
+        "ap_id": 8820082,
+        "index": 81,
+        "address": "0x904725ad"
+    },
+    "Quick Strike": {
+        "ap_id": 8820083,
+        "index": 82,
+        "address": "0x904725ae"
+    },
+    "Ground Strike": {
+        "ap_id": 8820084,
+        "index": 83,
+        "address": "0x904725af"
+    },
+    "Heated Exchange": {
+        "ap_id": 8820085,
+        "index": 84,
+        "address": "0x904725b0"
+    },
+    "Wind Gust Attack": {
+        "ap_id": 8820086,
+        "index": 85,
+        "address": "0x904725b1"
+    },
+    "Lift": {
+        "ap_id": 8820087,
+        "index": 86,
+        "address": "0x904725b2"
+    },
+    "Bait": {
+        "ap_id": 8820088,
+        "index": 87,
+        "address": "0x904725b3"
+    },
+    "Power Drain": {
+        "ap_id": 8820089,
+        "index": 88,
+        "address": "0x904725b4"
+    },
+    "Fire Breath": {
+        "ap_id": 8820090,
+        "index": 89,
+        "address": "0x904725b5"
+    },
+    "Stinger": {
+        "ap_id": 8820091,
+        "index": 90,
+        "address": "0x904725b6"
+    },
+    "Delayed Attack": {
+        "ap_id": 8820092,
+        "index": 91,
+        "address": "0x904725b7"
+    },
+    "Change of Fate": {
+        "ap_id": 8820093,
+        "index": 92,
+        "address": "0x904725b8"
+    },
+    "Overpower": {
+        "ap_id": 8820094,
+        "index": 93,
+        "address": "0x904725b9"
+    },
+    "Lightning Gate": {
+        "ap_id": 8820095,
+        "index": 94,
+        "address": "0x904725ba"
+    },
+    "Sinkhole": {
+        "ap_id": 8820096,
+        "index": 95,
+        "address": "0x904725bb"
+    },
+    "Tricky Gate": {
+        "ap_id": 8820097,
+        "index": 96,
+        "address": "0x904725bc"
+    },
+    "Bakugan Duo": {
+        "ap_id": 8820098,
+        "index": 97,
+        "address": "0x904725bd"
+    },
+    "Stuck": {
+        "ap_id": 8820099,
+        "index": 98,
+        "address": "0x904725be"
+    },
+    "A Hand Up": {
+        "ap_id": 8820100,
+        "index": 99,
+        "address": "0x904725bf"
+    },
+    "Masquerade's Throw": {
+        "ap_id": 8820101,
+        "index": 100,
+        "address": "0x904725c0"
+    },
+    "Dan's Throw": {
+        "ap_id": 8820102,
+        "index": 101,
+        "address": "0x904725c1"
+    },
+    "Unexpected Guest": {
+        "ap_id": 8820103,
+        "index": 102,
+        "address": "0x904725c2"
+    },
+    "Julie's Throw": {
+        "ap_id": 8820104,
+        "index": 103,
+        "address": "0x904725c3"
+    },
+    "Clean Slate": {
+        "ap_id": 8820105,
+        "index": 104,
+        "address": "0x904725c4"
+    },
+    "Marionette": {
+        "ap_id": 8820106,
+        "index": 105,
+        "address": "0x904725c5"
+    },
+    "Perfect Aim": {
+        "ap_id": 8820107,
+        "index": 106,
+        "address": "0x904725c6"
+    },
+    "Runo's Throw": {
+        "ap_id": 8820108,
+        "index": 107,
+        "address": "0x904725c7"
+    },
+    "Marucho's Throw": {
+        "ap_id": 8820109,
+        "index": 108,
+        "address": "0x904725c8"
+    },
+    "Uneven Bump": {
+        "ap_id": 8820110,
+        "index": 109,
+        "address": "0x904725c9"
+    },
+    "Battle Gate": {
+        "ap_id": 8820111,
+        "index": 110,
+        "address": "0x904725ca"
+    },
+    "Shun's Throw": {
+        "ap_id": 8820112,
+        "index": 111,
+        "address": "0x904725cb"
+    },
+    "Dark Void": {
+        "ap_id": 8820113,
+        "index": 112,
+        "address": "0x904725cc"
+    },
+    "Leap Ahead": {
+        "ap_id": 8820114,
+        "index": 113,
+        "address": "0x904725cd"
+    },
+    "Blowing Winds": {
+        "ap_id": 8820115,
+        "index": 114,
+        "address": "0x904725ce"
+    },
+    "Ground Attack": {
+        "ap_id": 8820116,
+        "index": 115,
+        "address": "0x904725cf"
+    },
+    "Tigrerra's Energy": {
+        "ap_id": 8820117,
+        "index": 116,
+        "address": "0x904725d0"
+    },
+    "Tripple Threat": {
+        "ap_id": 8820118,
+        "index": 117,
+        "address": "0x904725d1"
+    },
+    "Equalizer": {
+        "ap_id": 8820119,
+        "index": 118,
+        "address": "0x904725d2"
+    },
+    "Ground Shutdown": {
+        "ap_id": 8820120,
+        "index": 119,
+        "address": "0x904725d3"
+    },
+    "Mega Impact": {
+        "ap_id": 8820145,
+        "index": 144,
+        "address": "0x904725ec"
+    },
+    "Chaos of the Darkness": {
+        "ap_id": 8820122,
+        "index": 121,
+        "address": "0x904725d5"
+    },
+    "Darkus Gazer": {
+        "ap_id": 8820123,
+        "index": 122,
+        "address": "0x904725d6"
+    },
+    "Boosted Dragon": {
+        "ap_id": 8820124,
+        "index": 123,
+        "address": "0x904725d7"
+    },
+    "Meteor Strike Dragon": {
+        "ap_id": 8820125,
+        "index": 124,
+        "address": "0x904725d8"
+    },
+    "Destruction Meteor Storm": {
+        "ap_id": 8820126,
+        "index": 125,
+        "address": "0x904725d9"
+    },
+    "Flare Binder": {
+        "ap_id": 8820127,
+        "index": 126,
+        "address": "0x904725da"
+    },
+    "Cut in Saber": {
+        "ap_id": 8820128,
+        "index": 127,
+        "address": "0x904725db"
+    },
+    "Velocity Fang": {
+        "ap_id": 8820129,
+        "index": 128,
+        "address": "0x904725dc"
+    },
+    "Blue Stealth": {
+        "ap_id": 8820130,
+        "index": 129,
+        "address": "0x904725dd"
+    },
+    "Grand Impact": {
+        "ap_id": 8820131,
+        "index": 130,
+        "address": "0x904725de"
+    },
+    "Fire Storm": {
+        "ap_id": 8820132,
+        "index": 131,
+        "address": "0x904725df"
+    },
+    "Right Giganto": {
+        "ap_id": 8820133,
+        "index": 132,
+        "address": "0x904725e0"
+    },
+    "Forcing Wave": {
+        "ap_id": 8820134,
+        "index": 133,
+        "address": "0x904725e1"
+    },
+    "Face of Rage": {
+        "ap_id": 8820135,
+        "index": 134,
+        "address": "0x904725e2"
+    },
+    "Feather Storm": {
+        "ap_id": 8820136,
+        "index": 135,
+        "address": "0x904725e3"
+    },
+    "With Darkness": {
+        "ap_id": 8820137,
+        "index": 136,
+        "address": "0x904725e4"
+    },
+    "Bright Light": {
+        "ap_id": 8820138,
+        "index": 137,
+        "address": "0x904725e5"
+    },
+    "G-Power Boost": {
+        "ap_id": 8820139,
+        "index": 138,
+        "address": "0x904725e6"
+    },
+    "G-Power Dump": {
+        "ap_id": 8820140,
+        "index": 139,
+        "address": "0x904725e7"
+    },
+    "Blaze": {
+        "ap_id": 8820141,
+        "index": 140,
+        "address": "0x904725e8"
+    },
+    "Home Advantage": {
+        "ap_id": 8820142,
+        "index": 141,
+        "address": "0x904725e9"
+    },
+    "Power From Darkness": {
+        "ap_id": 8820143,
+        "index": 142,
+        "address": "0x904725ea"
+    },
+    "Summon Wave": {
+        "ap_id": 8820144,
+        "index": 143,
+        "address": "0x904725eb"
+    },
+    "Hot Wind": {
+        "ap_id": 8820146,
+        "index": 145,
+        "address": "0x904725ed"
+    },
+    "Flash": {
+        "ap_id": 8820147,
+        "index": 146,
+        "address": "0x904725ee"
+    },
+    "G-Power Bonus": {
+        "ap_id": 8820148,
+        "index": 147,
+        "address": "0x904725ef"
+    },
+    "G-Power Up": {
+        "ap_id": 8820149,
+        "index": 148,
+        "address": "0x904725f0"
+    },
+    "Dark Growth": {
+        "ap_id": 8820150,
+        "index": 149,
+        "address": "0x904725f1"
+    },
+    "Circle of Fire": {
+        "ap_id": 8820151,
+        "index": 150,
+        "address": "0x904725f2"
+    },
+    "Updraft": {
+        "ap_id": 8820152,
+        "index": 151,
+        "address": "0x904725f3"
+    },
+    "Fire Menace": {
+        "ap_id": 8820153,
+        "index": 152,
+        "address": "0x904725f4"
+    },
+    "Intense Roar": {
+        "ap_id": 8820154,
+        "index": 153,
+        "address": "0x904725f5"
+    },
+    "Triangle of Power": {
+        "ap_id": 8820155,
+        "index": 154,
+        "address": "0x904725f6"
+    },
+    "Power Triangle": {
+        "ap_id": 8820156,
+        "index": 155,
+        "address": "0x904725f7"
+    },
+    "Heated Glow": {
+        "ap_id": 8820157,
+        "index": 156,
+        "address": "0x904725f8"
+    },
+    "Dark Circumference": {
+        "ap_id": 8820158,
+        "index": 157,
+        "address": "0x904725f9"
+    },
+    "Gusty Maneuver": {
+        "ap_id": 8820159,
+        "index": 158,
+        "address": "0x904725fa"
+    },
+    "Pyrus and Darkus Combo": {
+        "ap_id": 8820160,
+        "index": 159,
+        "address": "0x904725fb"
+    },
+    "Ventus and Haos Combo": {
+        "ap_id": 8820161,
+        "index": 160,
+        "address": "0x904725fc"
+    },
+    "Subterra and Aquos Combo": {
+        "ap_id": 8820162,
+        "index": 161,
+        "address": "0x904725fd"
+    },
+    "Pyrus and Subterra Combo": {
+        "ap_id": 8820163,
+        "index": 162,
+        "address": "0x904725fe"
+    },
+    "Subterra and Haos Combo": {
+        "ap_id": 8820164,
+        "index": 163,
+        "address": "0x904725ff"
+    },
+    "Haos and Darkus Combo": {
+        "ap_id": 8820165,
+        "index": 164,
+        "address": "0x90472600"
+    },
+    "Darkus and Aquos Combo": {
+        "ap_id": 8820166,
+        "index": 165,
+        "address": "0x90472601"
+    },
+    "Aquos and Ventus Combo": {
+        "ap_id": 8820167,
+        "index": 166,
+        "address": "0x90472602"
+    },
+    "Ventus and Pyrus Combo": {
+        "ap_id": 8820168,
+        "index": 167,
+        "address": "0x90472603"
+    },
+    "Pyrus, Aquos, and Haos Combo": {
+        "ap_id": 8820169,
+        "index": 168,
+        "address": "0x90472604"
+    },
+    "Subterra, Ventus, and Darkus Combo": {
+        "ap_id": 8820170,
+        "index": 169,
+        "address": "0x90472605"
+    },
+    "Leonidas": {
+        "ap_id": 8820171,
+        "index": 170,
+        "address": "0x90472606"
+    },
+    "Omega Leonidas": {
+        "ap_id": 8820172,
+        "index": 171,
+        "address": "0x90472607"
+    },
+    "Vladitor": {
+        "ap_id": 8820173,
+        "index": 172,
+        "address": "0x90472608"
+    },
+    "Battle Ax Vladitor": {
+        "ap_id": 8820174,
+        "index": 173,
+        "address": "0x90472609"
+    },
+    "Alpha Blaster": {
+        "ap_id": 8820175,
+        "index": 174,
+        "address": "0x9047260a"
+    },
+    "Omega Erasor": {
+        "ap_id": 8820176,
+        "index": 175,
+        "address": "0x9047260b"
+    },
+    "Dark Sphere Impact": {
+        "ap_id": 8820177,
+        "index": 176,
+        "address": "0x9047260c"
+    },
+    "Thousand Destroyer": {
+        "ap_id": 8820178,
+        "index": 177,
+        "address": "0x9047260d"
+    },
+    "Bakugan Spin": {
+        "ap_id": 8820179,
+        "index": 178,
+        "address": "0x9047260e"
+    },
+    "G-Power Spin": {
+        "ap_id": 8820180,
+        "index": 179,
+        "address": "0x9047260f"
+    },
+    "Turn of Fortune": {
+        "ap_id": 8820181,
+        "index": 180,
+        "address": "0x90472610"
+    },
+    "Fire Wall": {
+        "ap_id": 8820182,
+        "index": 181,
+        "address": "0x90472611"
+    },
+    "Dive Mirage": {
+        "ap_id": 8820183,
+        "index": 182,
+        "address": "0x90472612"
+    },
+    "Blow Away": {
+        "ap_id": 8820184,
+        "index": 183,
+        "address": "0x90472613"
+    },
+    "Grand Slide": {
+        "ap_id": 8820185,
+        "index": 184,
+        "address": "0x90472614"
+    },
+    "Spark Out": {
+        "ap_id": 8820186,
+        "index": 185,
+        "address": "0x90472615"
+    },
+    "Dimension 4": {
+        "ap_id": 8820187,
+        "index": 186,
+        "address": "0x90472616"
+    },
+    "Shinning Nova": {
+        "ap_id": 8820188,
+        "index": 187,
+        "address": "0x90472617"
+    },
+    "Quick Draw": {
+        "ap_id": 8820189,
+        "index": 188,
+        "address": "0x90472618"
+    },
+    "Power Surge": {
+        "ap_id": 8820190,
+        "index": 189,
+        "address": "0x90472619"
+    },
+    "Timing Battle": {
+        "ap_id": 8820191,
+        "index": 190,
+        "address": "0x9047261a"
+    }
+}
