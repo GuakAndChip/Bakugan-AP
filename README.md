@@ -2,28 +2,6 @@
 
 Standalone Windows client for the Bakugan Battle Brawlers apworld. Hooks Dolphin with pure ctypes, tracks stats, sends location checks and the goal, and writes received items into the game.
 
-## Run from source
-
-```
-pip install -r requirements.txt
-python main.py
-```
-
-The hex maps ship in the `data/` folder (`bakugan_hex_map_fixed.json`, `card_hex_map.json`); the client finds them there automatically. Start Dolphin with the game, enter server, slot and password, press Connect.
-
-## Build the exe (players need nothing installed)
-
-```
-pip install pyinstaller
-```
-or just double-click `build.bat` (Windows, needs Python 3.10+ installed once, on the machine that builds). It produces `dist\BakuganAP.exe`, a single file players can double-click with no console window and nothing else to install. If the exe ever crashes at startup, the error is shown in a message box and saved to `~/.bakugan_ap_client/crash.log`.
-
-or by hand:
-
-```
-pyinstaller --onefile --windowed --name BakuganAP --add-data "data;data" main.py
-```
-
 ## What it does
 
 - **Checks** (only locations that exist in your slot are sent): `Defeat <Name> (Nx)` up to the slot's `enemy_defeats`, tournament medals/crests (cumulative win thresholds), rank milestones, lowest-turn, battle-type wins, money bags (by peak BP) and the two collector milestones (targets come from slot data: `collector_bakugan_target` and `collector_card_target`, a percentage of what is in the seed; older seeds fall back to `collector_threshold`).
