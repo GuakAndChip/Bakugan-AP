@@ -15,6 +15,7 @@ import random
 from typing import Dict, List, Optional
 
 from bakugan_data import VALID_COMBINED
+from constants import OPPONENTS as OPPONENT_NAMES
 
 ENEMY_DECK_BASE = 0x8033A793
 ENEMY_STRIDE = 1008
@@ -54,11 +55,7 @@ def _species_by_attribute() -> Dict[int, List[int]]:
 
 def baseline_looks_valid(block: bytes) -> bool:
     """True when the block holds real decks (Dan's first deck has a valid Bakugan), not zeros / a half-loaded game."""
-    if len(block) != BLOCK_LEN:
-        return False
-    rec = block[0:RECORD_LEN]
-    species, attr, level = rec[0], rec[4], rec[13]
-    return species * 6 + attr in VALID_COMBINED and 1 <= level <= 10
+    return structure_problem(block) is None
 
 
 def _gp_for_level(rng: random.Random, tier: int, level: int) -> int:
@@ -179,3 +176,55 @@ def matches(expected: bytes, current: bytes) -> bool:
     if _RANGES is None:
         _RANGES = managed_ranges()
     return all(expected[r.start:r.stop] == current[r.start:r.stop] for r in _RANGES)
+
+
+def structure_problem(block: bytes) -> Optional[str]:
+    """Checks that all 96 decks look exactly like the documented layout. Returns what is wrong, or None.
+    This must pass before anything is written: a wrong game version or a not-yet-loaded game would otherwise get
+    random memory overwritten."""
+    if len(block) != BLOCK_LEN:
+        return "short read"
+    for enemy in range(ENEMY_COUNT):
+        for deck in range(DECKS_PER_ENEMY):
+            at = deck_offset(enemy, deck)
+            d = block[at:at + DECK_STRIDE]
+            where = f"{OPPONENT_NAMES[enemy]} deck {deck + 1}"
+            filled = 0
+            for slot in range(3):
+                r = d[slot * BAKUGAN_SLOT_STRIDE:slot * BAKUGAN_SLOT_STRIDE + RECORD_LEN]
+                sp = d[slot * BAKUGAN_SLOT_STRIDE + RECORD_LEN:(slot + 1) * BAKUGAN_SLOT_STRIDE]
+                if any(sp):
+                    return f"{where}: slot {slot + 1} spacer is not zero"
+                if r[13] == 0:
+                    if any(r):
+                        return f"{where}: slot {slot + 1} is half empty"
+                    continue
+                filled += 1
+                if r[0] * 6 + r[4] not in VALID_COMBINED:
+                    return f"{where}: slot {slot + 1} is not a valid Bakugan"
+                if r[1:4] != b"\0\0\0" or r[7] != 0 or not 1 <= r[13] <= 99:
+                    return f"{where}: slot {slot + 1} record shape is wrong"
+                if not all(1 <= x <= 100 for x in r[8:13]):
+                    return f"{where}: slot {slot + 1} movement stats out of range"
+            if filled == 0:
+                return f"{where}: no Bakugan"
+            if any(d[60:120]):
+                return f"{where}: unused Bakugan area is not zero"
+            for off, lo, hi in ((GATE_OFFSET, 0, 97), (ABILITY_OFFSET, 98, 190)):
+                for i in range(3):
+                    e = d[off + i * CARD_STRIDE:off + (i + 1) * CARD_STRIDE]
+                    if any(e[1:]) or not lo <= e[0] <= hi:
+                        return f"{where}: card entry is not valid"
+    return None
+
+
+def diff_writes(expected: bytes, current: bytes) -> List[tuple]:
+    """(offset, bytes) pairs for only the managed fields that differ - nothing else in memory is touched."""
+    global _RANGES
+    if _RANGES is None:
+        _RANGES = managed_ranges()
+    out = []
+    for r in _RANGES:
+        if expected[r.start:r.stop] != current[r.start:r.stop]:
+            out.append((r.start, expected[r.start:r.stop]))
+    return out

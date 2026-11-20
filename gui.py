@@ -160,8 +160,14 @@ class App:
             self.setting_vars[attr] = var
             if attr == "hex_map_path":
                 ttk.Button(f, text="Browse...", command=self.on_browse_hexmap).grid(row=r, column=2)
+        self.enemy_var = tk.BooleanVar(value=bool(self.settings.enemy_decks_enabled))
+        ttk.Checkbutton(f, text="Change enemy decks (experimental - writes to game memory, off by default)",
+                        variable=self.enemy_var).grid(row=len(SETTING_FIELDS), column=0, columnspan=3, sticky="w", pady=8)
+        self.debug_var = tk.BooleanVar(value=bool(self.settings.debug_log_writes))
+        ttk.Checkbutton(f, text="Log the bytes before/after every memory write (debug)",
+                        variable=self.debug_var).grid(row=len(SETTING_FIELDS) + 1, column=0, columnspan=3, sticky="w", pady=2)
         btns = ttk.Frame(f)
-        btns.grid(row=len(SETTING_FIELDS), column=0, columnspan=3, sticky="w", pady=14)
+        btns.grid(row=len(SETTING_FIELDS) + 2, column=0, columnspan=3, sticky="w", pady=14)
         ttk.Button(btns, text="Save settings", command=self.on_save_settings).pack(side="left")
 
     # ------------------------------------------------------------------ actions
@@ -194,6 +200,8 @@ class App:
         except ValueError as e:
             messagebox.showerror(APP_NAME, f"Invalid setting: {e}")
             return
+        self.settings.enemy_decks_enabled = bool(self.enemy_var.get())
+        self.settings.debug_log_writes = bool(self.debug_var.get())
         self.settings.save()
         self.engine.reload_hex_map()
         self.engine.log("Settings saved")
