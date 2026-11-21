@@ -26,6 +26,10 @@ class Settings:
     password: str = ""
     poll_interval: float = 0.25                # seconds between Dolphin reads
     hex_map_path: str = "bakugan_hex_map_fixed.json"  # Bakugan offsets + base stat records
+    mem2_delta_override: str = ""            # hex offset of the save data from the documented addresses; blank = find it
+    enemy_delta_override: str = ""           # same for the enemy decks
+    debug_log_writes: bool = True              # log the bytes before/after every memory write (Log tab + client.log)
+    enemy_decks_enabled: bool = False          # EXPERIMENTAL: rewrite enemy decks in MEM1 (off until verified)
 
     @classmethod
     def load(cls, path: Path | None = None) -> "Settings":

@@ -182,6 +182,10 @@
    'C:\\Users\\icewa\\miniconda3\\Lib\\dataclasses.py',
    'PYMODULE'),
   ('datetime', 'C:\\Users\\icewa\\miniconda3\\Lib\\datetime.py', 'PYMODULE'),
+  ('debuglog',
+   'C:\\Users\\icewa\\Downloads\\bakugan_ap_client '
+   '2\\bakugan_ap_client\\debuglog.py',
+   'PYMODULE'),
   ('decimal', 'C:\\Users\\icewa\\miniconda3\\Lib\\decimal.py', 'PYMODULE'),
   ('dis', 'C:\\Users\\icewa\\miniconda3\\Lib\\dis.py', 'PYMODULE'),
   ('dolphin_memory_engine',
@@ -366,6 +370,10 @@
   ('json.scanner',
    'C:\\Users\\icewa\\miniconda3\\Lib\\json\\scanner.py',
    'PYMODULE'),
+  ('locator',
+   'C:\\Users\\icewa\\Downloads\\bakugan_ap_client '
+   '2\\bakugan_ap_client\\locator.py',
+   'PYMODULE'),
   ('logging',
    'C:\\Users\\icewa\\miniconda3\\Lib\\logging\\__init__.py',
    'PYMODULE'),
@@ -469,6 +477,10 @@
   ('queue', 'C:\\Users\\icewa\\miniconda3\\Lib\\queue.py', 'PYMODULE'),
   ('quopri', 'C:\\Users\\icewa\\miniconda3\\Lib\\quopri.py', 'PYMODULE'),
   ('random', 'C:\\Users\\icewa\\miniconda3\\Lib\\random.py', 'PYMODULE'),
+  ('rebase',
+   'C:\\Users\\icewa\\Downloads\\bakugan_ap_client '
+   '2\\bakugan_ap_client\\rebase.py',
+   'PYMODULE'),
   ('runpy', 'C:\\Users\\icewa\\miniconda3\\Lib\\runpy.py', 'PYMODULE'),
   ('secrets', 'C:\\Users\\icewa\\miniconda3\\Lib\\secrets.py', 'PYMODULE'),
   ('selectors', 'C:\\Users\\icewa\\miniconda3\\Lib\\selectors.py', 'PYMODULE'),

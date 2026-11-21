@@ -12,8 +12,12 @@ import time
 from ap_client import ApClient
 from checks import achieved_locations, goal_reached
 from config import Settings, StateStore, app_dir
-from constants import (CARD_COUNT, MAX_DEFEATS, OPPONENTS, PLAYER_NAME_ADDR, defeat_location_id)
+from constants import (CARD_BASE, CARD_COUNT, DECK1_ADDR, DECK2_ADDR, ECON_BLOCK_LEN, MAX_DEFEATS, OPPONENTS,
+                       PLAYER_NAME_ADDR, RANK_POINTS_ADDR, STATS_BLOCK_ADDR, STATS_BLOCK_LEN, defeat_location_id)
 import enemy_decks
+from debuglog import DebugMemory, hex_str
+import locator
+from rebase import RebasedMemory, parse_delta
 from gamestate import GameState, read_game_state
 from hexmap import load_hex_map
 from items import ADDITIVE, BOOSTS, InjectionError, ItemInjector, bakugan_name, classify
@@ -23,7 +27,10 @@ from memory import DolphinMemory, MemoryAccessError
 class Engine:
     def __init__(self, settings: Settings, memory=None, state: StateStore | None = None):
         self.settings = settings
-        self.mem = memory or DolphinMemory()
+        # layers: Dolphin <- debug logging (real addresses) <- rebasing (documented addresses -> this machine's)
+        self.raw = DebugMemory(memory or DolphinMemory(), self._debug, lambda: bool(self.settings.debug_log_writes))
+        self.rebase = RebasedMemory(self.raw)
+        self.mem = self.rebase
         self.state = state or StateStore()
         self.inj = ItemInjector(self.mem)
         self.events: "queue.Queue" = queue.Queue()
@@ -53,8 +60,17 @@ class Engine:
         self.enemy_baseline: bytes | None = None   # original enemy decks, read once per seed before any write
         self._enemy_expected: tuple | None = None  # (params, block) cache
         self._last_enemy_check = 0.0
-        self._enemy_wait_logged = False
+        self._enemy_off_logged = False
+        self._enemy_wait_logged = None
         self.banked_boosts: dict = {}       # boosters received while no Bakugan could take them yet
+
+        self.rebase.mem2_delta = self._manual_delta(self.settings.mem2_delta_override)   # None = find it
+        self.rebase.enemy_delta = self._manual_delta(self.settings.enemy_delta_override)
+        self._last_locate = 0.0
+        self._last_verify = 0.0
+        self._verify_fail = 0
+        self._last_enemy_locate = 0.0
+        self._manual_logged = False
 
         self._last_hook_try = 0.0
         self._last_name_read = 0.0
@@ -64,7 +80,23 @@ class Engine:
 
     # ------------------------------------------------------------------ plumbing
     def log(self, text: str):
-        self.events.put(("log", f"[{time.strftime('%H:%M:%S')}] {text}"))
+        line = f"[{time.strftime('%H:%M:%S')}] {text}"
+        self.events.put(("log", line))
+        self._append_log_file(line)
+
+    def _debug(self, text: str):
+        self.log(f"[debug] {text}")
+
+    def _append_log_file(self, line: str):
+        """Everything shown in the Log tab is also kept in client.log (the tab only holds the latest lines)."""
+        try:
+            path = app_dir() / "client.log"
+            if path.exists() and path.stat().st_size > 2_000_000:
+                path.replace(path.with_suffix(".log.1"))
+            with path.open("a", encoding="utf-8") as fh:
+                fh.write(line + "\n")
+        except OSError:
+            pass
 
     def start(self):
         self.reload_hex_map()
@@ -149,7 +181,7 @@ class Engine:
         base_hex = self.state.get_value(self.key, "enemy_baseline", "")
         self.enemy_baseline = bytes.fromhex(base_hex) if base_hex else None
         self._enemy_expected = None
-        self._enemy_wait_logged = False
+        self._enemy_wait_logged = None
         self.banked_boosts = {k: int(v) for k, v in self.state.get_value(self.key, "banked_boosts", {}).items()}
         self.item_status = {i: "done" for i in range(self.applied)}
         self.goal_sent = False
@@ -191,6 +223,18 @@ class Engine:
                     self.gs = None
                     return
                 self.log("Hooked to Dolphin")
+                self.rebase.mem2_delta = None
+                self.rebase.enemy_delta = None
+                self._verify_fail = 0
+                try:
+                    gid = self.mem.read(0x80000000, 6).decode("ascii", "replace")
+                    self.log(f"Game ID: {gid}")      # region / version of the game (addresses differ between versions)
+                except (MemoryAccessError, ValueError):
+                    pass
+            if not self._ensure_root():
+                self.dolphin_status = "Dolphin found, looking for the game's data"
+                self.gs = None
+                return
             new = read_game_state(self.mem)
         except MemoryAccessError as e:
             text = str(e)
@@ -199,12 +243,108 @@ class Engine:
             self.gs = None
             self.mem.unhook()   # re-hook next time in case Dolphin was restarted
             return
-        self.dolphin_status = "Dolphin connected"
+        d = self.rebase.mem2_delta
+        self.dolphin_status = "Dolphin connected" + (f" (data offset {d:+#x})" if d else "")
         self._track_wins(self.gs, new)
         self.gs = new
         if time.time() - self._last_name_read > 8:
             self._last_name_read = time.time()
             self._read_player_name()
+
+    # ------------------------------------------------------------------ finding the game's data
+    def _manual_delta(self, text: str):
+        try:
+            return parse_delta(text)
+        except ValueError:
+            self.log(f"Ignoring offset override '{text}' (use hex, like 0x1230)")
+            return None
+
+    def _ensure_root(self) -> bool:
+        """True when the save-data offset is known and still checks out. May take a few seconds when it has to scan."""
+        r, now = self.rebase, time.time()
+        manual = self._manual_delta(self.settings.mem2_delta_override)
+        if manual is not None:
+            if r.mem2_delta != manual:
+                r.mem2_delta = manual
+                self.log(f"Using the save-data offset from Settings: {manual:+#x}")
+            return True
+        if r.mem2_delta is not None:
+            if now - self._last_verify < 2.0:
+                return True
+            self._last_verify = now
+            if locator.check_mem2(self.raw.read, r.mem2_delta):
+                self._verify_fail = 0
+                return True
+            self._verify_fail += 1
+            if self._verify_fail < 3:
+                return True
+            self.log("The game's data no longer sits where it was (another save loaded?), searching again")
+            r.mem2_delta = None
+        if now - self._last_locate < 5.0:
+            return False
+        self._last_locate = now
+        return self._locate_mem2()
+
+    def _locate_mem2(self) -> bool:
+        hints = [self.state.get_value("_locator", "mem2_delta", 0) or 0, 0]
+        self.log("Searching Dolphin memory for the game's save data (a few seconds)...")
+        cands = locator.find_mem2(self.raw.read, hints=hints)
+        pick = locator.best(cands)
+        if pick is None:
+            if cands:
+                self.log("Several places look like the game's data, can't tell which is live. Candidates:")
+                for c in cands[:5]:
+                    self.log(f"  offset {c.delta:+#x}  score {c.score}  rank points {c.rank}  BP {c.bp}")
+                self.log("Pick the one whose BP matches the game and enter its offset in Settings (save-data offset)")
+            else:
+                self.log("Game data not found yet. Load a save in the game (the client keeps looking)")
+            return False
+        self.rebase.mem2_delta = pick.delta
+        self._verify_fail = 0
+        self.state.set_value("_locator", "mem2_delta", pick.delta)
+        self.log(f"Found the game's save data: offset {pick.delta:+#x} from the documented addresses "
+                 f"(deck 1 at 0x{DECK1_ADDR + pick.delta:08X}, rank points {pick.rank}, BP {pick.bp})")
+        return True
+
+    def _ensure_enemy_root(self) -> bool:
+        r, now = self.rebase, time.time()
+        manual = self._manual_delta(self.settings.enemy_delta_override)
+        if manual is not None:
+            r.enemy_delta = manual
+            return True
+        if r.enemy_delta is not None:
+            return True
+        if now - self._last_enemy_locate < 10.0:
+            return False
+        self._last_enemy_locate = now
+        hints = [self.state.get_value("_locator", "enemy_delta", 0) or 0, 0]
+        found = locator.find_enemy(self.raw.read, hints=hints)
+        if not found:
+            self.log("Enemy decks not found in memory yet (wrong game version, or the game hasn't loaded them)")
+            return False
+        r.enemy_delta = found[0]
+        self.state.set_value("_locator", "enemy_delta", found[0])
+        self.log(f"Found the enemy decks: offset {found[0]:+#x}" + (f" (also valid: {[hex(x) for x in found[1:4]]})" if len(found) > 1 else ""))
+        return True
+
+    async def relocate(self):
+        """Button: forget the offsets and search again now."""
+        self.rebase.mem2_delta = None
+        self.rebase.enemy_delta = None
+        self.enemy_baseline_checked = False
+        self._last_locate = self._last_enemy_locate = 0.0
+        if not self.mem.is_hooked() and not self.mem.hook():
+            self.log("Dolphin not found")
+            return
+        if self._ensure_root():
+            if self.settings.enemy_decks_enabled:
+                self._ensure_enemy_root()
+
+    def real_address(self, address: int) -> int:
+        try:
+            return self.rebase.real(address)
+        except MemoryAccessError:
+            return address
 
     def _read_player_name(self):
         try:
@@ -269,6 +409,52 @@ class Engine:
             await self.ap.send_goal()
             self.goal_sent = True
             self.log("Goal complete! Reported to Archipelago")
+            self._goal_report()
+
+    def _goal_report(self):
+        """One-off dump when the goal is reached: game state, what the client believes it did, and raw memory."""
+        lines = ["===== GOAL REPORT ====="]
+        try:
+            gs = self.gs
+            lines.append(f"Slot key: {self.key}")
+            lines.append(f"Offsets: save data {self.rebase.mem2_delta}, enemy decks {self.rebase.enemy_delta}")
+            try:
+                lines.append("Game ID: " + self.mem.read(0x80000000, 6).decode("ascii", "replace"))
+            except Exception:
+                lines.append("Game ID: <unreadable>")
+            if gs is not None:
+                lines.append("Wins: " + ", ".join(f"{n}={w}" for n, w in zip(OPPONENTS, gs.wins)) + f" (total {sum(gs.wins)})")
+                lines.append(f"Battles {gs.battles}, record wins {gs.total_wins}, losses {gs.losses}, least turns {gs.least_turns}, "
+                             f"1v1 {gs.one_on_one}, tag {gs.tag_team}, royale {gs.battle_royale}")
+                lines.append(f"Rank points {gs.rank_points}, BP {gs.money}, peak BP {self.peak_money}")
+            done, total = len(self.ap.checked), len(self.ap.all_locations)
+            lines.append(f"Checks done {done} / {total}; items received {len(self.ap.items)}, applied {self.applied}, "
+                         f"additive_through {self.additive_through}, decks_written {self.decks_written}")
+            lines.append(f"Boosts: {self.inj.boosts}; banked: {self.banked_boosts}")
+            lines.append(f"Enemy decks: enabled={self.settings.enemy_decks_enabled}, params={self._enemy_params()}, "
+                         f"baseline stored={self.enemy_baseline is not None}")
+            for label, addr, size in (
+                ("Rank points + BP", RANK_POINTS_ADDR, ECON_BLOCK_LEN),
+                ("Stats block", STATS_BLOCK_ADDR, STATS_BLOCK_LEN),
+                ("Deck 1", DECK1_ADDR, 36),
+                ("Deck 2", DECK2_ADDR, 36),
+                ("Cards", CARD_BASE, CARD_COUNT),
+                ("Enemy deck Dan #1", enemy_decks.ENEMY_DECK_BASE, enemy_decks.DECK_STRIDE),
+                ("Enemy deck Marduk #6", enemy_decks.ENEMY_DECK_BASE + enemy_decks.deck_offset(15, 5), enemy_decks.DECK_STRIDE),
+            ):
+                try:
+                    lines.append(f"{label} @0x{addr:08X} [{size}]: {hex_str(self.mem.read(addr, size), size)}")
+                except Exception as ex:
+                    lines.append(f"{label} @0x{addr:08X}: unreadable ({ex})")
+        except Exception as ex:                       # a report must never break the goal handling
+            lines.append(f"(report incomplete: {ex})")
+        lines.append("===== END GOAL REPORT =====")
+        for line in lines:
+            self.log(line)
+        try:
+            (app_dir() / "goal_report.txt").write_text("\n".join(lines) + "\n", encoding="utf-8")
+        except OSError:
+            pass
 
     # ------------------------------------------------------------------ items
     def _apply(self, idx: int, item_id: int) -> str:
@@ -330,6 +516,10 @@ class Engine:
                 self._save("banked_boosts", self.banked_boosts)
 
     def _process_items(self):
+        with self.mem.batch("received items"):
+            self._process_items_inner()
+
+    def _process_items_inner(self):
         if not self.ap.connected or self.gs is None:
             return  # only write while the game's memory is readable
         items = self.ap.items
@@ -374,6 +564,12 @@ class Engine:
     def _maintain_enemy_decks(self, force: bool = False):
         """Keep the enemy decks in memory equal to the generated ones. The game loads them from the ROM, so after a
         reload they are simply written again. Runs every couple of seconds, once all received items are applied."""
+        if not self.settings.enemy_decks_enabled:
+            if (not self._enemy_off_logged and self.ap.connected
+                    and enemy_decks.needs_work(*self._enemy_params()[1:])):
+                self.log("Enemy deck changes are turned off in Settings (experimental), enemy decks left alone")
+                self._enemy_off_logged = True
+            return
         if not self.ap.connected or self.applied < len(self.ap.items):
             return
         seed, mode, tier, nerfs = params = self._enemy_params()
@@ -383,22 +579,38 @@ class Engine:
             return
         self._last_enemy_check = time.time()
         try:
+            if not self._ensure_enemy_root():
+                return
             current = self.mem.read(enemy_decks.ENEMY_DECK_BASE, enemy_decks.BLOCK_LEN)
             if self.enemy_baseline is None:
-                if not enemy_decks.baseline_looks_valid(current):
-                    if not self._enemy_wait_logged:
-                        self.log("Waiting for the game to load the enemy decks before changing them")
-                        self._enemy_wait_logged = True
+                problem = enemy_decks.structure_problem(current)
+                if problem:
+                    if problem != self._enemy_wait_logged:
+                        self.log(f"Enemy decks not changed: memory doesn't look like the enemy decks yet ({problem}). "
+                                 "Wrong game version, or the game hasn't loaded them")
+                        self._enemy_wait_logged = problem
+                    if self.settings.enemy_delta_override.strip() == "":
+                        self.rebase.enemy_delta = None      # look somewhere else next time
                     return
                 self.enemy_baseline = current
                 self._save("enemy_baseline", current.hex())
             expected = self._enemy_block(params)
             if enemy_decks.matches(expected, current):
                 return
-            self.mem.write(enemy_decks.ENEMY_DECK_BASE, expected)
+            # Never write unless what is in memory right now still has the documented shape
+            problem = enemy_decks.structure_problem(current)
+            if problem:
+                if problem != self._enemy_wait_logged:
+                    self.log(f"Enemy decks not rewritten: memory changed shape ({problem})")
+                    self._enemy_wait_logged = problem
+                return
+            writes = enemy_decks.diff_writes(expected, current)
+            with self.mem.batch("enemy decks"):
+                for offset, data in writes:           # only the Bakugan records / card ids that differ
+                    self.mem.write(enemy_decks.ENEMY_DECK_BASE + offset, data)
             if not enemy_decks.matches(expected, self.mem.read(enemy_decks.ENEMY_DECK_BASE, enemy_decks.BLOCK_LEN)):
                 raise InjectionError("Read-back mismatch writing the enemy decks")
-            self.log("Wrote the enemy decks" + (f" ({nerfs} nerf(s) applied)" if nerfs else ""))
+            self.log(f"Wrote the enemy decks ({len(writes)} fields)" + (f", {nerfs} nerf(s) applied" if nerfs else ""))
         except (MemoryAccessError, InjectionError) as ex:
             msg = f"Couldn't write the enemy decks: {ex}"
             if msg != self._last_inject_err:
@@ -441,6 +653,10 @@ class Engine:
 
     # ------------------------------------------------------------------ inventory tools (buttons)
     async def refresh_inventory(self):
+        with self.mem.batch("refresh inventory"):
+            await self._refresh_inventory()
+
+    async def _refresh_inventory(self):
         """Wipe all Bakugan and cards, then write back everything received (BP/rank are never re-added)."""
         if not self.ap.connected or self.gs is None:
             self.log("Refresh Inventory needs Dolphin and Archipelago connected")
@@ -466,6 +682,10 @@ class Engine:
         self._maintain_enemy_decks(force=True)
 
     async def missing_inventory(self):
+        with self.mem.batch("missing inventory"):
+            await self._missing_inventory()
+
+    async def _missing_inventory(self):
         """Write only the received Bakugan/cards that aren't in memory (desync recovery)."""
         if not self.ap.connected or self.gs is None:
             self.log("Missing Inventory needs Dolphin and Archipelago connected")
@@ -509,14 +729,14 @@ class Engine:
 
     # ------------------------------------------------------------------ memory tab helpers
     def read_memory(self, address: int, size: int) -> bytes:
-        if not self.mem.is_hooked() and not self.mem.hook():
+        if not self.raw.is_hooked() and not self.raw.hook():
             raise MemoryAccessError("Dolphin not found")
-        return self.mem.read(address, size)
+        return self.raw.read(address, size)          # real Dolphin addresses (use the presets for documented ones)
 
     def write_memory(self, address: int, data: bytes) -> None:
-        if not self.mem.is_hooked() and not self.mem.hook():
+        if not self.raw.is_hooked() and not self.raw.hook():
             raise MemoryAccessError("Dolphin not found")
-        self.mem.write(address, data)
+        self.raw.write(address, data)
         self.log(f"Wrote {len(data)} byte(s) to 0x{address:08X}")
 
     # ------------------------------------------------------------------ snapshot for the GUI

@@ -16,6 +16,8 @@ MAX_LOG_LINES = 2000
 SETTING_FIELDS = [
     ("Poll interval (seconds)", "poll_interval", float),
     ("Bakugan hex map JSON", "hex_map_path", str),
+    ("Save-data offset override (hex, blank = auto)", "mem2_delta_override", str),
+    ("Enemy-deck offset override (hex, blank = auto)", "enemy_delta_override", str),
 ]
 
 
@@ -69,6 +71,7 @@ class App:
         ttk.Button(tools, text="Refresh Inventory", command=self.on_refresh_inventory).pack(side="left", padx=(0, 6))
         ttk.Button(tools, text="Missing Inventory", command=self.on_missing_inventory).pack(side="left", padx=6)
         ttk.Button(tools, text="Write Starter Decks", command=self.on_write_decks).pack(side="left", padx=6)
+        ttk.Button(tools, text="Find Memory Root", command=lambda: self.engine.submit(self.engine.relocate())).pack(side="left", padx=6)
         ttk.Button(tools, text="Test Inject", command=self.on_test_inject).pack(side="left", padx=6)
 
         bar = ttk.Frame(self.root)
@@ -160,8 +163,14 @@ class App:
             self.setting_vars[attr] = var
             if attr == "hex_map_path":
                 ttk.Button(f, text="Browse...", command=self.on_browse_hexmap).grid(row=r, column=2)
+        self.enemy_var = tk.BooleanVar(value=bool(self.settings.enemy_decks_enabled))
+        ttk.Checkbutton(f, text="Change enemy decks (experimental - writes to game memory, off by default)",
+                        variable=self.enemy_var).grid(row=len(SETTING_FIELDS), column=0, columnspan=3, sticky="w", pady=8)
+        self.debug_var = tk.BooleanVar(value=bool(self.settings.debug_log_writes))
+        ttk.Checkbutton(f, text="Log the bytes before/after every memory write (debug)",
+                        variable=self.debug_var).grid(row=len(SETTING_FIELDS) + 1, column=0, columnspan=3, sticky="w", pady=2)
         btns = ttk.Frame(f)
-        btns.grid(row=len(SETTING_FIELDS), column=0, columnspan=3, sticky="w", pady=14)
+        btns.grid(row=len(SETTING_FIELDS) + 2, column=0, columnspan=3, sticky="w", pady=14)
         ttk.Button(btns, text="Save settings", command=self.on_save_settings).pack(side="left")
 
     # ------------------------------------------------------------------ actions
@@ -194,8 +203,12 @@ class App:
         except ValueError as e:
             messagebox.showerror(APP_NAME, f"Invalid setting: {e}")
             return
+        self.settings.enemy_decks_enabled = bool(self.enemy_var.get())
+        self.settings.debug_log_writes = bool(self.debug_var.get())
         self.settings.save()
         self.engine.reload_hex_map()
+        self.engine.rebase.mem2_delta = None
+        self.engine.rebase.enemy_delta = None
         self.engine.log("Settings saved")
 
     def _confirm_and_run(self, message: str, coro_factory):
@@ -249,6 +262,7 @@ class App:
                               self.engine.write_starter_decks)
 
     def _preset(self, address: int, length: int):
+        address = self.engine.real_address(address)      # documented address -> where it is on this machine
         self.addr_var.set(f"{address:08X}")
         self.len_var.set(str(length))
         self.on_mem_read()
